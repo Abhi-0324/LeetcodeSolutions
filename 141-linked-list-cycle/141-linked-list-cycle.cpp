@@ -11,17 +11,14 @@ public:
     bool hasCycle(ListNode *head) {
         ListNode *curr = head, *prev = head;
 
-        
         while(curr != nullptr && curr ->next != nullptr){
             curr = curr->next->next;
             prev= prev-> next;
             
             if(curr==prev){
-                return true;
-            }
+                return true;        }
             
         }
-        return false;
-        
+        return false;   
     }
 };
