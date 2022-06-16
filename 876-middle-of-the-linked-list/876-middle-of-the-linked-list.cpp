@@ -11,36 +11,13 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-        int count = 0;
-        int flag =0;
-        int k =0;
-        ListNode*node = new ListNode();
-        ListNode*temp = head;
-        while(head != nullptr){
-            count ++;
-            head =head ->next;
-            
+
+        ListNode *curr = head, *prev = head;
+        while(curr != nullptr && curr -> next != nullptr){
+            curr = curr -> next -> next;
+            prev = prev -> next;
         }
-        cout << count;
-        if(count%2==0){
-           flag= count/2 +1;
-        }else{
-            flag = (count+1)/2 ;
-        }
-        cout<<flag;
-        while(temp != nullptr){
-               k++;
-       cout<<k;
-            if(k==flag){
-                node->val =temp->val;
-                node->next = temp->next;
-               
-            }
-            temp = temp->next;
-             
-               
-            
-        }
-        return node;
+        
+        return prev;
     }
 };
