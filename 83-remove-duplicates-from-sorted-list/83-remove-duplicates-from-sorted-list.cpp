@@ -20,8 +20,9 @@ public:
                 prev->next = curr -> next;
                 curr = prev -> next;
             }else{
-                prev = prev->next;
                 curr = curr-> next;
+                prev = prev->next;
+               
             }
             
         }
