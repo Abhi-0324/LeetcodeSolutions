@@ -10,10 +10,8 @@ public:
             breakPoint = i-1;
             break;
             }
-           //123
-            //-1<0
         }
-        //if there is no any breakPoint 
+       
         if(breakPoint<0){
          reverse(nums.begin(), nums.end());
         return;
