@@ -20,7 +20,6 @@ public:
         if(lh == -1) return -1;
         int rh =dfsHeight(root->right);
         if(rh == -1) return -1;
-     
         if(abs(lh-rh)>1){
             return -1;
         }
