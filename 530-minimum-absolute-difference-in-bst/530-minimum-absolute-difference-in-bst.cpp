@@ -11,23 +11,24 @@
  */
 class Solution {
 public:
-    int prev = INT_MIN;
-    int ans = INT_MAX;
+  
     
-    void dfs(TreeNode* root ){
+    void dfs(TreeNode* root ,int &prev ,int &ans ){
         if(root == nullptr){
             return;
         }
-        dfs(root->left );
-        if(prev != INT_MIN){
-        ans = min(ans , abs(root->val-prev));
+        dfs(root->left,prev ,ans );
+        if(prev !=INT_MIN){
+        ans = min(ans , abs(prev-root->val));
         }
         prev = root->val;
-        dfs(root->right );
+        dfs(root->right,prev,ans );
         
     }
-    int getMinimumDifference(TreeNode* root) {
-         dfs(root);
+    int getMinimumDifference(TreeNode* root ) {
+         int prev = INT_MIN;
+         int ans = INT_MAX;
+         dfs(root,prev,ans);
         return ans;
         
         
