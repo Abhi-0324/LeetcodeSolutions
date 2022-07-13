@@ -18,10 +18,6 @@ public:
    
       
         dfs(root->left , target);
-          if(root->val == target && !root->left && !root->right){
-            root = nullptr;
-            return;
-        }
         dfs(root->right , target);
         if(root->val == target && !root->left && !root->right){
             root = nullptr;
