@@ -23,6 +23,7 @@ public:
             if(first == nullptr ){
                 first = prev;
                 last = root;  
+             
             }else{ 
                 last = root;
             }
