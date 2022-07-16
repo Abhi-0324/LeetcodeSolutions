@@ -15,29 +15,24 @@ public:
       TreeNode* prev = nullptr;
     void dfs(TreeNode* root){
         if(root == nullptr){
-            return ;
-        }
-       
-           
+return ; }
            dfs(root->left );
           if(prev){
           if(root->val<=prev->val){
-               flag ++;
-               
-           }
-          }
-           prev = root;
+flag ++; }
+}
+prev = root;
           dfs(root->right );
-         
-            
     }
-    bool isValidBST(TreeNode* root) {
+    bool isValidBST(TreeNode* root)
+        {
         dfs(root );
         cout<<flag;
         if(flag ==0){
             return true;
         }else{
+            
             return false;
         }
-    }
+}
 };
