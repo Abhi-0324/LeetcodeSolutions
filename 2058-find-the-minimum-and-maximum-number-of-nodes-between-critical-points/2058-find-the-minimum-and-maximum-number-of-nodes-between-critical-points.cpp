@@ -24,7 +24,7 @@ public:
             return ans;
         }
         while(fast){
-            if(head->val<slow->val && head->val<fast->val){
+            if(head->val<slow->val && head->val<fast->val ||head->val>slow->val && head->val>fast->val ){
                 if(first ==0){
                     first = node;
                     prev = node;   
@@ -37,21 +37,6 @@ public:
                 if(first != node)
                    ans[1] = abs(first-node);
                  flag+=1;
-        
-            }else if(head->val>slow->val && head->val>fast->val){
-                if(first ==0){
-                    first = node;
-                     prev = node;         
-                }
-             
-               if(flag !=0){
-                minDistance = min(abs(prev-node) ,minDistance );
-                prev = node;
-                ans[0] = minDistance;
-               }
-                 flag+=1;
-                if(first != node)
-                ans[1] = abs(first-node);
             }
             slow = slow->next;
             fast = fast->next;
