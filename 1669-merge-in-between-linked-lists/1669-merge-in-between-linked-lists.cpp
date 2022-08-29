@@ -29,10 +29,12 @@ public:
             count+=1;
             
         }
+          
       linker1->next = list2;
         while(list2->next != nullptr){
             list2=list2->next;
         }
+
         
         list2->next = linker2;
         return list1;
