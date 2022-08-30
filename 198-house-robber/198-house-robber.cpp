@@ -3,15 +3,17 @@ public:
 
     int rob(vector<int>& nums) {
         int n = nums.size();
-        vector<int> dp(n,-1);
-        dp[0] =nums[0];
+        int prev1 =nums[0];
+        int prev2 = 0;
+        int curri =0;
         for(int index=1 ;index<n ;index++){
-            int take = nums[index];
-            if(index>1) take+= dp[index-2];
-            int notTake = dp[index-1];
-             dp[index]=max(take ,notTake);
+            int take = nums[index] + prev2;
+            int notTake = prev1;
+             curri=max(take ,notTake);
+            prev2 = prev1;
+            prev1 = curri;
         }
-       return dp[n-1];
+       return prev1;
         
     }
 };
