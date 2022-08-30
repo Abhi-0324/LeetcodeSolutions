@@ -1,21 +1,17 @@
 class Solution {
 public:
-   int rob(int index , vector<int> &nums ,vector<int> &dp){
-        if(index == 0){
-            return nums[index];
-        }
-        if(index<0) return 0;
-        if(dp[index] != -1){
-          return dp[index];
-        }
-        int take = nums[index] + rob(index-2,nums,dp);
-        int notTake = rob(index-1 ,nums ,dp);
-        return dp[index] =max(take,notTake);
-    }
+
     int rob(vector<int>& nums) {
         int n = nums.size();
         vector<int> dp(n,-1);
-        return rob(n-1 ,nums,dp);
+        dp[0] =nums[0];
+        for(int index=1 ;index<n ;index++){
+            int take = nums[index];
+            if(index>1) take+= dp[index-2];
+            int notTake = dp[index-1];
+             dp[index]=max(take ,notTake);
+        }
+       return dp[n-1];
         
     }
 };
